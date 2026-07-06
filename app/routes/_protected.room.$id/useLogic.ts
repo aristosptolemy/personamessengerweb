@@ -36,27 +36,37 @@ export const useLogic = () => {
     messages
   } = useChatRoomListener(id)
 
-  const usersDataSet = async() => {
+  const usersDataSet = async () => {
     if (!roomData) return
-    const members = roomData?.members
+    if (!userData?.id) return
+
+    const members = roomData.members ?? []
+
     const list = []
-    for (const id of members) {
-      const result = await userDataGet(id)
-      list.push(result)
+
+    for (const memberId of members) {
+      const result = await userDataGet(memberId)
+
+      if (result) {
+        list.push(result)
+      }
     }
+
     setUsers(list)
 
-    const NotMyself = list.filter((row) => row.id !== userData.id)
-    let roomName = ''
-    for (const user of NotMyself) {
-      roomName = roomName + `${user.displayName},`
-    }
-    setRoomName(roomName)
+    const notMyself = list.filter((row) => row.id !== userData.id)
+
+    const name = notMyself
+      .map((user) => user.displayName)
+      .filter(Boolean)
+      .join(',')
+
+    setRoomName(name)
   }
 
   useEffect(() => {
     usersDataSet()
-  }, [roomData])
+  }, [roomData, userData?.id])
 
   const [isSending, setIsSending] = useState(false)
 

@@ -23,7 +23,8 @@
 .MessageArea {
   display: flex;
   flex-direction: column-reverse;
-  height: calc(100svh - 140px);
+  padding-top: 60px;
+  height: calc(100dvh - 200px);
   width: 100%;
   overflow: auto;
 }
@@ -34,7 +35,7 @@
 
 @media (min-width: 769px) {
   .MessageArea {
-    height: calc(100svh - 76px);
+    height: calc(100vh - 140px);
   }
 }
 
@@ -43,8 +44,12 @@
   position: fixed;
   bottom: 0;
   z-index: 200;
+  left: 0;        /* 追加：左右の位置を固定 */
+  right: 0;       /* 追加：左右の位置を固定 */
+  width: 100%;    /* 追加：横幅を明示 */
   display: flex;
-  margin-bottom: 14px;
+  justify-content: center;
+  padding-bottom: 14px;
 }
 
 input {

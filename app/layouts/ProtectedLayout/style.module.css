@@ -1,6 +1,6 @@
 .Main {
   display: flex;
-  min-height: 100vh;
+  min-height: 100dvh;
   background-color: #f8fbf8;
   overflow: hidden;
   font-family: Noto serif;
@@ -8,13 +8,13 @@
 
 .navigationLeft {
   width: 200px;
-  height: 100vh;
+  height: 100dvh;
   border-right: 1px solid #ccc;
   background-color: #f8fbf8;
 }
 
 .Content {
-  max-height: calc(100vh - 64px);
+  max-height: calc(100dvh - 64px);
   flex: 1;
   background-color: #ae0000;
   display: flex;
@@ -23,6 +23,8 @@
   position: relative;
   top: 64px;
 }
+
+
 
 
 /* .Content::-webkit-scrollbar {
@@ -42,6 +44,6 @@
 
   .Content {
     top: 0px;
-    max-height: 100vh;
+    max-height: 100dvh;
   }
 }
