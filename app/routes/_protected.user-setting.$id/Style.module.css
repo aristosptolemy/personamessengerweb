@@ -25,7 +25,7 @@
   .TitleArea {
     position: relative;
     bottom: 72px;
-    z-index: 100;
+    z-index: 400;
     height: 40px;
     overflow: visible;
   }
