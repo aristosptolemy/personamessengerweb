@@ -24,7 +24,7 @@
   display: flex;
   flex-direction: column-reverse;
   padding-top: 60px;
-  height: calc(100dvh - 200px);
+  height: calc(100dvh - 220px);
   width: 100%;
   overflow: auto;
 }
@@ -33,11 +33,7 @@
   display: none;
 }
 
-@media (min-width: 769px) {
-  .MessageArea {
-    height: calc(100vh - 140px);
-  }
-}
+
 
 
 .inputArea {
@@ -50,6 +46,7 @@
   display: flex;
   justify-content: center;
   padding-bottom: 14px;
+  flex: 1;
 }
 
 input {
@@ -58,7 +55,43 @@ input {
   outline: none;
   background: #dddddd;
   padding: 4px;
-} 
+  min-width: 210px;
+  width: clamp(210px, 40vw, 600px);
+  flex: 1;
+}
+
+textarea {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background: #dddddd;
+  padding: 4px;
+  min-width: 210px;
+  width: clamp(210px, 40vw, 600px);
+  flex: 1;
+}
+
+@media (min-width: 769px) {
+  .MessageArea {
+    height: calc(100vh - 180px);
+  }
+  input {
+    font-size: clamp(16px, 4cqw, 24px);
+    transform: rotate(-2deg);
+  }
+
+  textarea {
+    font-size: clamp(16px, 4cqw, 24px);
+    transform: rotate(-2deg);
+  }
+}
+
+.Button {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}
+
 
 .Row {
   display: flex;

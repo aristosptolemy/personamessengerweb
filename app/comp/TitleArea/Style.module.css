@@ -9,7 +9,7 @@
 .TitleBorder {
   max-width: 100%;
   background-color: black;
-  padding: 20px 10px 20px 30px;
+  padding: 10px 6px 10px 16px;
   clip-path: polygon(
     0 30%,
     100% 12%,
@@ -21,7 +21,7 @@
 .TitleArea {
   max-width: 100%;
   display: flex;
-  padding: 20px 40px;
+  padding: 10px 20px;
 
   background-color: #dddddd;
   display: flex;

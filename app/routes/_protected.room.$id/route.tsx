@@ -80,32 +80,37 @@ export default function Room() {
       </div>
 
       <div className={styles.inputArea}>
-        <InputArea>
-          <input
-            className={styles.MessageInput}
-            placeholder='message...'
-            value={sendText}
-            enterKeyHint='send'
-            onChange={(e) => setSendText(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.nativeEvent.isComposing) return
-
-              if (e.key === 'Enter') {
-                e.preventDefault()
-
-                if (!sendText.trim()) return
-
-                e.currentTarget.blur()
-                sendMessage()
-              }
-            }}
+        <div className={styles.Input}>
+          <InputArea>
+            <textarea
+              className={styles.MessageInput}
+              placeholder='message...'
+              value={sendText}
+              enterKeyHint='send'
+              onChange={(e) => setSendText(e.target.value)}
+              // onKeyDown={(e) => {
+              //   if (e.nativeEvent.isComposing) return
+              //   e.preventDefault()
+              //   if (!sendText.trim()) return
+              //   e.currentTarget.blur()
+              //   sendMessage()
+              //   // if (e.key === 'Enter') {
+              //   //   e.preventDefault()
+              //   //   if (!sendText.trim()) return
+              //   //   e.currentTarget.blur()
+              //   //   sendMessage()
+              //   // }
+              // }}
+            />
+          </InputArea>
+        </div>
+        <div className={styles.Button}>
+          <CostomButton
+            buttonName='送信'
+            action={sendMessage}
           />
-        </InputArea>
+        </div>
 
-        <CostomButton
-          buttonName='送信'
-          action={sendMessage}
-        />
       </div>
     </div>
   )

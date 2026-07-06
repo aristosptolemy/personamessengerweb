@@ -1,6 +1,7 @@
 .InputMainArea {
   display: flex;
   justify-content: center;
+  flex: 1;
 }
 
 .Border {
@@ -12,6 +13,7 @@
     94% 90%,
     12% 100%
   );
+  flex: 1;
 }
 
 .TargetArea {
@@ -28,6 +30,14 @@
     94% 92%,
     9% 100%
   );
-  padding: 20px 40px;
+  padding: 20px;
   padding-bottom: 10px;
+  flex: 1;
+}
+
+
+@media (min-width: 769px) {
+  .TargetArea {
+    padding: 20px 60px;
+  }
 }
