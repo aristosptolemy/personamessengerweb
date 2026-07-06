@@ -82,25 +82,22 @@ export default function Room() {
       <div className={styles.inputArea}>
         <div className={styles.Input}>
           <InputArea>
-            <textarea
+            <input
               className={styles.MessageInput}
               placeholder='message...'
               value={sendText}
               enterKeyHint='send'
               onChange={(e) => setSendText(e.target.value)}
-              // onKeyDown={(e) => {
-              //   if (e.nativeEvent.isComposing) return
-              //   e.preventDefault()
-              //   if (!sendText.trim()) return
-              //   e.currentTarget.blur()
-              //   sendMessage()
-              //   // if (e.key === 'Enter') {
-              //   //   e.preventDefault()
-              //   //   if (!sendText.trim()) return
-              //   //   e.currentTarget.blur()
-              //   //   sendMessage()
-              //   // }
-              // }}
+              onKeyDown={(e) => {
+                if (e.nativeEvent.isComposing) return
+                
+                if (e.key === 'Enter') {
+                  e.preventDefault()
+                  if (!sendText.trim()) return
+                  e.currentTarget.blur()
+                  sendMessage()
+                }
+              }}
             />
           </InputArea>
         </div>
