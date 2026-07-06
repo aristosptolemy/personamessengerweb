@@ -1,18 +1,20 @@
 import { useState, type ChangeEvent, type SubmitEvent } from 'react'
-import TextField from '@mui/material/TextField'
-import Button from '@mui/material/Button'
+
 import { Link } from "react-router"
 import { login } from '~/lib/LoginLogics'
 import toast from 'react-hot-toast'
 
 import { useNavigate } from 'react-router'
 
+import { useGroup } from '@providers/GroupProvider'
 
 import styles from './login.module.css'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
   const [pass, setPass] = useState('')
+
+  const { setUserId } = useGroup()
 
   const navigate = useNavigate()
 
@@ -39,6 +41,7 @@ export default function LoginPage() {
         id: result.user.uid,
         displayName: result?.user.displayName ?? '',
       }
+      setUserId(data.id)
       localStorage.setItem('userData', JSON.stringify(data))
       navigate('/')
       return
