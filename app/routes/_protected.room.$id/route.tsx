@@ -90,8 +90,12 @@ export default function Room() {
 
               if (e.key === 'Enter') {
                 e.preventDefault()
+
                 if (!sendText.trim()) return
+
                 sendMessage()
+
+                e.currentTarget.blur()
               }
             }}
           />
