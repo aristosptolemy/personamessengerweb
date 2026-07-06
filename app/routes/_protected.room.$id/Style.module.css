@@ -34,7 +34,7 @@
 
 @media (min-width: 769px) {
   .MessageArea {
-    height: calc(100dvh - 100px);
+    height: calc(100dvh - 76px);
   }
 }
 
