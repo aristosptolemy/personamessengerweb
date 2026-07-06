@@ -15,7 +15,7 @@ jobs:
       - name: Use Node.js 22
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - name: Install dependencies
@@ -34,21 +34,29 @@ jobs:
           VITE_FIREBASE_MEASUREMENT_ID: ${{ secrets.VITE_FIREBASE_MEASUREMENT_ID }}
 
       - name: Check localhost source
-        run: npx firebase-tools@14.22.0 deploy --only hosting --project pmapp-39c6e --debug
+        run: |
+          echo "=== localhost:5173 ==="
+          if grep -R "localhost:5173" build/client -n; then
+            echo "localhost:5173 found"
+            exit 1
+          else
+            echo "localhost:5173 not found"
+          fi
 
       - name: Authenticate to Google Cloud
         id: auth
         uses: google-github-actions/auth@v2
         with:
           credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_CHAT }}
-          # 以下のオプションにより、以降のすべてのステップで自動的に環境変数が有効になります
           create_credentials_file: true
           export_environment_variables: true
 
+      - name: Check Google credentials
+        run: |
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$GOOGLE_APPLICATION_CREDENTIALS"
+          test -f "$GOOGLE_APPLICATION_CREDENTIALS"
+
       - name: Deploy to Firebase Hosting
-        # 重複していた GOOGLE_APPLICATION_CREDENTIALS の手動指定を削除しました
-        # 代わりに、プロジェクトIDの紐付けを強固にする環境変数を設定しています
         env:
           NODE_OPTIONS: "--dns-result-order=ipv4first"
-          FIREBASE_CLI_PREVIEWS: hostingchannels
-        run: npx firebase-tools@14.22.0 deploy --only hosting --project staffdata-b7495 --debug
+        run: npx firebase-tools@14.22.0 deploy --only hosting --project pmapp-39c6e --debug
