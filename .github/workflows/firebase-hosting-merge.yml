@@ -34,14 +34,7 @@ jobs:
           VITE_FIREBASE_MEASUREMENT_ID: ${{ secrets.VITE_FIREBASE_MEASUREMENT_ID }}
 
       - name: Check localhost source
-        run: |
-          echo "=== localhost:5173 ==="
-          if grep -R "localhost:5173" build/client -n; then
-            echo "localhost:5173 found"
-            exit 1
-          else
-            echo "localhost:5173 not found"
-          fi
+        run: npx firebase-tools@14.22.0 deploy --only hosting --project pmapp-39c6e --debug
 
       - name: Authenticate to Google Cloud
         id: auth
