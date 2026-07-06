@@ -23,7 +23,7 @@
 .MessageArea {
   display: flex;
   flex-direction: column-reverse;
-  height: calc(100vh - 134px);
+  height: calc(100dvh - 140px);
   width: 100%;
   overflow: auto;
 }
@@ -34,7 +34,7 @@
 
 @media (min-width: 769px) {
   .MessageArea {
-    height: calc(100vh - 74px);
+    height: calc(100dvh - 100px);
   }
 }
 
@@ -44,6 +44,7 @@
   bottom: 0;
   z-index: 200;
   display: flex;
+  margin-bottom: 14px;
 }
 
 input {
