@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;700;800;900&display=swap');
+
+.MainArea {
+  display: flex;
+  justify-content: center;
+  max-width: calc(100vw - 120px);
+}
+
+.TitleBorder {
+  max-width: 100%;
+  background-color: black;
+  padding: 20px 10px 20px 30px;
+  clip-path: polygon(
+    0 30%,
+    100% 12%,
+    94% 90%,
+    12% 100%
+  );
+}
+
+.TitleArea {
+  max-width: 100%;
+  display: flex;
+  padding: 20px 40px;
+
+  background-color: #dddddd;
+  display: flex;
+  flex-direction: column;
+  clip-path: polygon(
+    0 28%,
+    99% 10%,
+    94% 92%,
+    9% 100%
+  );
+}
+
+.Title {
+  font-size: clamp(24px, 6cqw, 50px);
+  font-weight: bolder;
+  font-style: oblique;
+  font-family: "M PLUS 1p", "M PLUS Rounded 1c", sans-serif;
+  color: white;
+  white-space: nowrap;
+  text-shadow:
+    2px 0 0 black,
+    -2px 0 0 black,
+    0 2px 0 black,
+    0 -2px 0 black,
+    2px 2px 0 black,
+    -2px 2px 0 black,
+    2px -2px 0 black,
+    -2px -2px 0 black,
+
+    4px 4px 0 black,
+    6px 6px 0 black;
+
+  transform: rotate(-2deg);
+  letter-spacing: 0.06em;
+}

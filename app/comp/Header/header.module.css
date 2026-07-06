@@ -1,0 +1,43 @@
+
+.headerBG {
+  width: 100%;
+  background-color: #ae0000;
+  border-bottom: 4px solid #222;
+  display: flex;
+  font-size: 18px;
+  font-family: 'Noto Serif JP', serif;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.headerMenu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+} 
+
+@media (min-width: 768px) {
+  .headerBG {
+    display: none;
+  }
+}
+
+.headerMain {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  padding: 4px 10px;
+}
+
+.Title {
+  flex: 1;
+  text-align: center;
+  margin-left: 10px;
+  font-size: 20px;
+}
+

@@ -1,0 +1,30 @@
+.MainBG {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.Row {
+  width: calc(100% - 200px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 500px) {
+  .Row {
+    width: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .TitleArea {
+    position: relative;
+    bottom: 72px;
+    z-index: 100;
+    height: 40px;
+    overflow: visible;
+  }
+}

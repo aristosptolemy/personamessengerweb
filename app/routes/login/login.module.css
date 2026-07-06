@@ -1,0 +1,138 @@
+.Main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: black;
+  font-style:oblique;
+  padding: 40px;
+}
+
+.Borders {
+  background-color: black;
+  padding: 20px 10px 20px 40px;
+  clip-path: polygon(
+    0 0,
+    100% 12%,
+    94% 90%,
+    12% 100%
+  );
+}
+
+
+.MainBG {
+  background-color: #efefef;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(
+    0 0,
+    99% 10%,
+    94% 92%,
+    9% 100%
+  );
+}
+
+.inputArea {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.Register, .Reset {
+  padding: 6px 10px;
+  transition:
+    background-color 0.3s ease
+  ;
+  border-radius: 4px;
+}
+
+.Register:hover, .Reset:hover {
+  background-color: #e8e8e8;
+}
+
+.helpArea {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.textField {
+  background-color: #f5f5f5;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+
+
+
+.LoginInput {
+  font-size: clamp(20px, 1cqw, 28px);
+  transform: skewX(-20deg);
+  padding: 10px;
+  border: 2px solid black;
+  width: 100%;
+}
+
+.Button {
+  font-style: oblique;
+  cursor: pointer;
+  transform: skewX(-20deg);
+  border: 2px solid black;
+  border-radius: 2px;
+}
+
+.Button button {
+  font-size: clamp(18px, 1cqw, 24px);
+  padding: 10px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.Button button:hover {
+  background-color: #ccc;
+}
+
+.LoginTitle {
+  font-size: clamp(26px, 8cqw, 50px);
+  font-weight: bolder;
+  font-style:oblique;
+}
+
+
+@media (max-width: 500px) {
+  /* スマホ用 */
+  .LoginInput {
+    font-size: 14px;
+  }
+
+  .inputArea,
+  .Form {
+    gap: 18px;
+  }
+
+  .Form {
+    margin-top: 10px;
+  }
+
+  .helpArea {
+    font-size: 14px;
+    white-space: nowrap;
+    gap: 10px;
+  }
+}
+

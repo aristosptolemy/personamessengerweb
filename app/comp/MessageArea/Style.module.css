@@ -1,0 +1,54 @@
+.InputMainArea {
+  display: flex;
+  justify-content: center;
+}
+
+.Border {
+  background-color: black;
+  padding: 16px;
+  clip-path: polygon(
+    16% 30%,
+    100% 12%,
+    94% 90%,
+    4% 90%
+  );
+}
+
+.TargetArea {
+  display: flex;
+  justify-content: center;
+  background-color: #dddddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(
+    12% 28%,
+    100% 0%,
+    98% 94%,
+    0% 100%
+  );
+  padding: 20px 40px;
+  padding-bottom: 10px;
+}
+
+
+.ArrowArea {
+  position: relative;
+  right: 34px;
+  top: 40px;
+  width: 0px;
+  overflow: visible;
+}
+
+.ArrowBG {
+  background-color: black;
+  padding: 18px;
+  width: 20px;
+  clip-path: polygon(
+    16% 50%,
+    100% 12%,
+    94% 90%,
+    4% 60%
+  );
+}

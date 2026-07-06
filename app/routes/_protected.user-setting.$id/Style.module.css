@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+
+
+.BG {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.PreviewImg {
+  position: absolute;
+  z-index: 100;
+  width: 14vw;
+  min-width: 60px;
+  max-width: 120px;
+  height: 14vw;
+  max-height: 120px;
+  min-height: 60px;
+  border-radius: 40%;
+}
+
+@media (max-width: 768px) {
+  .TitleArea {
+    position: relative;
+    bottom: 72px;
+    z-index: 100;
+    height: 40px;
+    overflow: visible;
+  }
+}
+
+
+
+
+
+
+.IconArea {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: visible;
+}
+
+.IconFrame {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  margin: 20px 0;
+  overflow: visible;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 黒い外枠 */
+.IconFrame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: black;
+  clip-path: polygon(
+    0 30%,
+    92% 40%,
+    100% 90%,
+    12% 100%
+  );
+  z-index: 1;
+}
+
+/* 灰色の中背景 */
+.IconFrame::after {
+  content: "";
+  position: absolute;
+  inset: 20px 10px 20px 32px;
+  background: #dddddd;
+  clip-path: polygon(
+    0 32%,
+    92% 40%,
+    98% 92%,
+    9% 100%
+  );
+  z-index: 2;
+}
+
+.FaceImg {
+  position: relative;
+  z-index: 3;
+  overflow: visible;
+}
+
+.DropArea {
+  width: 140px;
+  height: 160px;
+  border: 1px dashed #aaa;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  position: relative;
+  overflow: visible;
+}
+
+
+
+
+
+.FormArea {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.LoginInput {
+  font-size: clamp(22px, 1cqw, 28px);
+  transform: skewX(-10deg);
+  border: none;
+  outline: none;
+  width: 100%;
+  background: #dddddd;
+  padding: 20px;
+  transform: rotate(-3deg);
+}
+
+.LoginInputfocus {
+  background: #dddddd;
+}
+
+
+.ButtonArea {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 60px;
+}

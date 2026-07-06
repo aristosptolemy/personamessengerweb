@@ -1,0 +1,54 @@
+.IconArea {
+  width: 100%;
+  max-width: 280px;
+  display: flex;
+  justify-content: center;
+}
+
+.IconClip {
+  width: clamp(100px, 28vw, 160px);
+  height: clamp(80px, 24vw, 140px);
+  overflow: hidden;
+  box-sizing: content-box;
+}
+
+.IconFrame {
+  position: relative;
+  width: clamp(100px, 28vw, 140px);
+  height: clamp(80px, 24vw, 120px);
+
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 黒い外枠 */
+.IconFrame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: black;
+  clip-path: polygon(
+    0 30%,
+    92% 40%,
+    100% 90%,
+    12% 100%
+  );
+  z-index: 1;
+}
+
+/* 灰色の中背景 */
+.IconFrame::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  background: #dddddd;
+  clip-path: polygon(
+    0 32%,
+    92% 40%,
+    98% 92%,
+    9% 100%
+  );
+  z-index: 2;
+}

@@ -1,0 +1,105 @@
+@media (max-width: 768px) {
+  .TitleArea {
+    top: 2px;
+  }
+
+}
+
+.TitleArea {
+  position: fixed;
+  z-index: 400;
+}
+
+
+.MainBG {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.MessageArea {
+  display: flex;
+  flex-direction: column-reverse;
+  height: calc(100vh - 134px);
+  width: 100%;
+  overflow: auto;
+}
+
+.MessageArea::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .MessageArea {
+    height: calc(100vh - 74px);
+  }
+}
+
+
+.inputArea {
+  position: fixed;
+  bottom: 0;
+  z-index: 200;
+  display: flex;
+}
+
+input {
+  font-size: clamp(10px, 3cqw, 24px);
+  border: none;
+  outline: none;
+  background: #dddddd;
+  padding: 4px;
+} 
+
+.Row {
+  display: flex;
+}
+
+
+
+.Name {
+  font-size: clamp(11px, 3.5vw, 18px);
+  font-weight: bolder;
+  font-style: oblique;
+  font-family: "M PLUS 1p", "M PLUS Rounded 1c", sans-serif;
+  color: white;
+  white-space: nowrap;
+  text-shadow:
+    2px 0 0 black,
+    -2px 0 0 black,
+    0 2px 0 black,
+    0 -2px 0 black,
+    2px 2px 0 black,
+    -2px 2px 0 black,
+    2px -2px 0 black,
+    -2px -2px 0 black,
+
+    4px 4px 0 black,
+    6px 6px 0 black;
+
+  transform: rotate(-4deg);
+  position: relative;
+  height: 0px;
+  z-index: 200;
+}
+.Mine {
+  display: flex;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.Other {
+  display: flex;
+  margin-right: auto;
+}
+
+.Img {
+  position: absolute;
+  z-index: 100;
+  width: min(65%, 100px);
+  height: min(65%, 100px);
+  border-radius: 40%;
+}

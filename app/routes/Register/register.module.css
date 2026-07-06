@@ -1,0 +1,156 @@
+
+
+
+.Title {
+  font-size: clamp(30px, 3.6cqw, 50px);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+
+
+.Main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: black;
+  font-style:oblique;
+  padding: 40px;
+}
+
+.Borders {
+  background-color: black;
+  padding: 20px 10px 20px 40px;
+  clip-path: polygon(
+    0 0,
+    100% 12%,
+    94% 90%,
+    12% 100%
+  );
+}
+
+
+.MainBG {
+  background-color: #efefef;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  clip-path: polygon(
+    0 0,
+    99% 10%,
+    94% 92%,
+    9% 100%
+  );
+}
+
+.inputArea {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+
+.emailArea {
+  width: 100%;
+  max-width: 600px;
+}
+
+.passwordArea {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.passwordPrimaly, .passwordSecondary {
+  width: clamp(180px, 100%, 290px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.LoginInput {
+  font-size: clamp(20px, 1cqw, 28px);
+  transform: skewX(-20deg);
+  padding: 10px;
+  border: 2px solid black;
+  width: calc(100% - 20px);
+}
+
+.Button {
+  font-style: oblique;
+  cursor: pointer;
+  transform: skewX(-20deg);
+  border: 2px solid black;
+  border-radius: 2px;
+}
+
+.Button button {
+  font-size: clamp(18px, 1cqw, 24px);
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease
+  ;
+}
+
+.Button button:hover {
+  background-color: brown;
+  color: white;
+}
+
+.LoginTitle {
+  font-size: clamp(26px, 8cqw, 50px);
+  font-weight: bolder;
+  font-style:oblique;
+}
+
+
+
+
+@media (max-width: 500px) {
+  /* スマホ用 */
+  .LoginInput {
+    font-size: 14px;
+  }
+
+  .inputArea,
+  .Form {
+    gap: 18px;
+  }
+
+  .Form {
+    margin-top: 10px;
+  }
+
+  .helpArea {
+    font-size: 14px;
+    white-space: nowrap;
+    gap: 10px;
+  }
+}

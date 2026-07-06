@@ -1,0 +1,33 @@
+.InputMainArea {
+  display: flex;
+  justify-content: center;
+}
+
+.Border {
+  background-color: black;
+  padding: 10px 6px 10px 20px;
+  clip-path: polygon(
+    0 30%,
+    100% 12%,
+    94% 90%,
+    12% 100%
+  );
+}
+
+.TargetArea {
+  display: flex;
+  justify-content: center;
+  background-color: #dddddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(
+    0 28%,
+    99% 10%,
+    94% 92%,
+    9% 100%
+  );
+  padding: 20px 40px;
+  padding-bottom: 10px;
+}

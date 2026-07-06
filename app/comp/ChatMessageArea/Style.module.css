@@ -1,0 +1,100 @@
+.InputMainArea {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.Mine {
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+}
+
+.Other {
+  justify-content: flex-start;
+}
+
+.Border {
+  background-color: black;
+  padding: 16px;
+  clip-path: polygon(
+    16% 30%,
+    100% 12%,
+    94% 90%,
+    4% 90%
+  );
+}
+
+.TargetArea {
+  background-color: #dddddd;
+  font-size: clamp(12px, 2cqw, 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  clip-path: polygon(
+    12% 28%,
+    100% 0%,
+    98% 94%,
+    0% 100%
+  );
+
+  padding: 20px;
+  padding-bottom: 10px;
+}
+
+.ArrowArea {
+  position: relative;
+  right: 20px;
+  top: 40px;
+  width: 0px;
+  overflow: visible;
+}
+
+.ArrowBG {
+  background-color: black;
+  padding: 18px;
+  width: 20px;
+  clip-path: polygon(
+    16% 50%,
+    100% 12%,
+    94% 90%,
+    4% 60%
+  );
+}
+
+/* =========================
+   自分のメッセージ
+========================= */
+
+.Mine .Border {
+  clip-path: polygon(
+    84% 30%,
+    0% 12%,
+    6% 90%,
+    96% 90%
+  );
+}
+
+.Mine .TargetArea {
+  clip-path: polygon(
+    88% 28%,
+    0% 0%,
+    2% 94%,
+    100% 100%
+  );
+}
+
+.Mine .ArrowArea {
+  right: 34px;
+  left: auto;
+}
+
+
+.Mine .ArrowBG {
+  clip-path: polygon(
+    84% 50%,
+    0% 12%,
+    6% 90%,
+    96% 60%
+  );
+}

@@ -1,0 +1,57 @@
+.ButtonBG {
+  background-color: black;
+  padding: 8px;
+
+  clip-path: polygon(
+    20% 30%,
+    100% 12%,
+    94% 90%,
+    12% 100%
+  );
+
+  cursor: pointer;
+  transform: skewX(-20deg);
+  border-radius: 2px;
+
+  border: none;
+  appearance: none;
+  font: inherit;
+
+  display: inline-block;
+}
+
+.TargetArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #dddddd;
+
+  clip-path: polygon(
+    16% 28%,
+    99% 10%,
+    94% 92%,
+    8% 100%
+  );
+
+  padding: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.Button {
+  font-size: clamp(10px, 2cqw, 24px);
+
+  font-weight: bold;
+  color: black;
+
+  transform: skewX(10deg);
+}
+
+.ButtonBG:hover .TargetArea {
+  background-color: #ccc;
+}
+
+.ButtonBG:active {
+  transform: skewX(-20deg) scale(0.96);
+}

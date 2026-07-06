@@ -1,0 +1,47 @@
+.Main {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8fbf8;
+  overflow: hidden;
+  font-family: Noto serif;
+}
+
+.navigationLeft {
+  width: 200px;
+  height: 100vh;
+  border-right: 1px solid #ccc;
+  background-color: #f8fbf8;
+}
+
+.Content {
+  max-height: calc(100vh - 64px);
+  flex: 1;
+  background-color: #ae0000;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  top: 64px;
+}
+
+
+/* .Content::-webkit-scrollbar {
+  display: none;
+} */
+
+.ContentArea {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+@media (min-width: 769px) {
+
+  .Content {
+    top: 0px;
+    max-height: 100vh;
+  }
+}
