@@ -82,8 +82,10 @@ export default function Room() {
       <div className={styles.inputArea}>
         <InputArea>
           <input
+            className={styles.MessageInput}
             placeholder='message...'
             value={sendText}
+            enterKeyHint='send'
             onChange={(e) => setSendText(e.target.value)}
             onKeyDown={(e) => {
               if (e.nativeEvent.isComposing) return
@@ -93,9 +95,8 @@ export default function Room() {
 
                 if (!sendText.trim()) return
 
-                sendMessage()
-
                 e.currentTarget.blur()
+                sendMessage()
               }
             }}
           />

@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useRef } from 'react'
 import { useParams } from 'react-router'
 import { useGroup } from '@providers/GroupProvider'
 
@@ -23,6 +23,7 @@ export const useLogic = () => {
 
   const [roomName, setRoomName] = useState('')
   const [sendText, setSendText] = useState('')
+  const inputRef = useRef<HTMLInputElement>(null)
 
   const {
     userData
@@ -84,6 +85,7 @@ export const useLogic = () => {
       await messageSend(text, id, userData.id)
 
       setSendText('')
+      inputRef.current?.blur()
     } catch (error) {
       console.error('メッセージ送信に失敗しました', error)
     } finally {
