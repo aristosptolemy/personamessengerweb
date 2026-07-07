@@ -8,10 +8,6 @@ import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact
 
 import ChatIcon from '@mui/icons-material/Chat';
 
-const userData = localStorage.getItem('userData')
-
-const userID = userData ? JSON.parse(userData).id : null
-
 export const Lists = [
   {
     link: '/friend-list',
@@ -34,7 +30,7 @@ export const Lists = [
     icon: <ConnectWithoutContactIcon />
   },
   {
-    link: `/user-setting/${userID}`,
+    link: `/user-setting`,
     name: 'ユーザー設定',
     icon: <ManageAccountsIcon />
   }

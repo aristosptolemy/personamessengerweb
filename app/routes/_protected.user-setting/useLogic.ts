@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom'
-import { useParams } from 'react-router'
 
 import {
   useState, useRef, useEffect, useCallback
@@ -19,7 +18,6 @@ import toast from 'react-hot-toast'
 import { useGroup } from '@providers/GroupProvider'
 
 export const useLogic = () => {
-  const { id } = useParams()
   const navigate = useNavigate()
   const [FileUIDisplay, setFileUIDisplay] = useState(false)
 
@@ -48,6 +46,8 @@ export const useLogic = () => {
       ...userData
     })
   }, [userData])
+
+  const id = userData ? userData.id : null
 
   
   const [previewUrl, setPreviewUrl] = useState<string | null>(null)

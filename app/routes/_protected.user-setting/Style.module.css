@@ -31,6 +31,19 @@
   }
 }
 
+.InputArea {
+  height: calc(100dvh - 140px);
+  width: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.InputArea::-webkit-scrollbar {
+  display: none;
+}
+
 
 
 
@@ -124,6 +137,8 @@
   background: #dddddd;
   padding: 20px;
   transform: rotate(-3deg);
+  position: relative;
+  top: 4px;
 }
 
 .LoginInputfocus {

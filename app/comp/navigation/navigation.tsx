@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { Lists } from './navigationList'
 import Tooltip from '@mui/material/Tooltip';
 
+import CostomButton from "../CostomLinkButton/Button";
+
 const iconSize = 40
 
 type Props = {
@@ -30,12 +32,6 @@ export default function Navigation(
             className={styles.navigationTitle}
             onClick={() => navigate('/')}
           >
-            {/* <img
-              src="/app-icon.png"
-              alt="app-icon"
-              width={iconSize}
-              height={iconSize}
-            /> */}
             <div
               className={`${isOpen ? styles.Titleopen : styles.Titleclosed}`}
             >
@@ -49,17 +45,21 @@ export default function Navigation(
                 key={index}
                 placement="right"
               >
-                <div
-                  className={styles.navigationRow}
-                  onClick={() => navigate(row.link)}
+                <CostomButton
+                  action={() => navigate(row.link)}
                 >
-                  {row.icon}
                   <div
-                    className={styles.navigationLink}
+                    className={styles.navigationRow}
                   >
-                    {isOpen ? row.name : ''}
+                    {row.icon}
+                    <div
+                      className={styles.navigationLink}
+                    >
+                      {isOpen ? row.name : ''}
+                    </div>
                   </div>
-                </div>
+                </CostomButton>
+                
               </Tooltip>
             ))}
           </div>
