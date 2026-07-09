@@ -25,13 +25,32 @@ export const useLogic = () => {
   const [sendText, setSendText] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
 
+  const [invitation, setInvitation] = useState(false)
+  const [menuTrayOpen, setMenuTray] = useState(false)
+  const [friendDatas, setFriendDatas] = useState<any[]>([])
+
+  
+
   const {
-    userData
+    userData,
+    FriendDatas
   } = useGroup()
+
 
   const {
     roomData
   } = useTargetRoomListener(id)
+
+  const invitationUsers = () => {
+    const Participated: string[] = roomData?.members ?? []
+    const users = FriendDatas?.filter((row) => !Participated.includes(row.id))
+    setFriendDatas(users)
+  }
+
+  useEffect(() => {
+    if (!FriendDatas || !roomData) return
+    invitationUsers()
+  }, [FriendDatas, roomData])
   
   const {
     messages
@@ -40,28 +59,25 @@ export const useLogic = () => {
   const usersDataSet = async () => {
     if (!roomData) return
     if (!userData?.id) return
-
     const members = roomData.members ?? []
-
     const list = []
-
     for (const memberId of members) {
       const result = await userDataGet(memberId)
-
       if (result) {
         list.push(result)
       }
     }
-
     setUsers(list)
-
-    const notMyself = list.filter((row) => row.id !== userData.id)
-
-    const name = notMyself
-      .map((user) => user.displayName)
-      .filter(Boolean)
-      .join(',')
-
+    let name = roomData?.roomName ?? null
+    if (!name) {
+      const notMyself = list.filter((row) => row.id !== userData.id)
+      name = notMyself
+        .map((user) => user.displayName)
+        .filter(Boolean)
+        .join(',')
+    } else {
+      setInvitation(true)
+    }
     setRoomName(name)
   }
 
@@ -112,7 +128,12 @@ export const useLogic = () => {
     sendText,
     setSendText,
     sendMessage,
-    sortedMessages
+    sortedMessages,
+    invitation,
+    menuTrayOpen,
+    setMenuTray,
+    id,
+    friendDatas
   }
 }
 

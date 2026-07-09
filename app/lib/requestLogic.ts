@@ -6,7 +6,7 @@ import {
   serverTimestamp,
   collection,
   writeBatch,
-  deleteDoc
+  arrayUnion
 } from 'firebase/firestore'
 
 
@@ -64,3 +64,35 @@ export const Completion = async (
   return roomID
 }
 
+
+
+
+export const RoomCompletion = async (
+  MyID: string,
+  RoomID: string,
+  requestID: string
+) => {
+  const batch = writeBatch(db)
+
+  const roomRef = doc(db, 'rooms', RoomID)
+
+  const requestRef = doc(
+    db,
+    'users',
+    MyID,
+    'Requests',
+    requestID
+  )
+
+  batch.update(roomRef, {
+    members: arrayUnion(MyID),
+    [`memberMap.${MyID}`]: true,
+    updatedAt: serverTimestamp(),
+  })
+
+  batch.delete(requestRef)
+
+  await batch.commit()
+
+  return RoomID
+}

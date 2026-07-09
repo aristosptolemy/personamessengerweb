@@ -1,0 +1,21 @@
+.Main {
+  background-color: #dddddd;
+  padding: 10px;
+  border: 4px black solid;
+  max-height: calc(100dvh - 100px);
+  display: flex;
+  flex-direction: column;
+}
+
+.friendsArea {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.Row {
+  display: flex;
+}

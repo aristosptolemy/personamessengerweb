@@ -8,11 +8,20 @@ import {
 } from "firebase/firestore"
 import { db } from "../lib/firebase"
 
+type UserData = {
+  comment: string
+  displayName: string
+  icon: any
+  id: string
+  imgBinary?: any
+  searchID: string
+  updatedAt: Timestamp
+}
 
 export function useUserListener(
   userID: string | null
 ) {
-  const [userData, setUserData] = useState(null)
+  const [userData, setUserData] = useState<UserData | null>(null)
 
   useEffect(() => {
     if (!userID) {
@@ -35,7 +44,7 @@ export function useUserListener(
         const data = {
           id: snapshot.id,
           ...snapshot.data(),
-        }
+        } as UserData
 
         setUserData(data)
 

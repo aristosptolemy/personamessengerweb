@@ -13,7 +13,9 @@ import { db } from "../lib/firebase"
 export type Request = {
   id: string
   partnerID: string
-  mesage: string
+  message: string
+  type: string
+  roomName?: string
 }
 
 

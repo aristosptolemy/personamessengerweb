@@ -36,6 +36,7 @@ type GroupContextValue = {
   userData?: any
   requests?: Request[]
   friends?: any[]
+  FriendDatas?: any[]
   rooms?: any[]
 }
 
@@ -79,7 +80,7 @@ export function GroupProvider({ children }: Props) {
 
   const { requests } = useRequestsListener(userID)
 
-  const { friends } = useFriendsListener(userID)
+  const { friends, FriendDatas } = useFriendsListener(userID)
 
   const { rooms } = useRoomsListener(userID)
 
@@ -93,6 +94,7 @@ export function GroupProvider({ children }: Props) {
         userData,
         requests,
         friends,
+        FriendDatas,
         rooms,
       }}
     >

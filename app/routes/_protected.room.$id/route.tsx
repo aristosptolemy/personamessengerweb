@@ -6,12 +6,12 @@ import InputArea from '~/comp/InputArea/InputArea'
 import ChatMessageArea from '~/comp/ChatMessageArea/MessageArea'
 
 import CostomButton from '~/comp/CostomButton/Button'
-
-
 import UserRow from './userRow'
 
+import MenuTray from './MenuTray/MenuTray'
 
 export default function Room() {
+
   const {
     users,
     userData,
@@ -19,8 +19,17 @@ export default function Room() {
     sendText,
     setSendText,
     sendMessage,
-    sortedMessages
+    sortedMessages,
+    invitation,
+    menuTrayOpen,
+    setMenuTray,
+    id,
+    friendDatas
   } = useLogic()
+
+  const RoomMenu = () => {
+    setMenuTray(true)
+  }
 
   const myId = userData?.id
 
@@ -39,17 +48,44 @@ export default function Room() {
 
   return (
     <div className={styles.MainBG}>
-      <div className={styles.TitleArea}>
-        <TitleArea>
-          {roomName}
-        </TitleArea>
-      </div>
+      
+      {invitation ? (
+        <div
+          className={styles.TitleArea}
+          onClick={RoomMenu}
+        >
+          <TitleArea>
+            {roomName}
+          </TitleArea>
+        </div>
+      ) : (
+        <div className={styles.TitleArea}>
+          <TitleArea>
+            {roomName}
+          </TitleArea>
+        </div>
+      )}
+      
 
+      <div
+        className={`${styles.MenuTrayBG} ${menuTrayOpen ? styles.MenuTrayOpen : styles.MenuTrayClosed}`}
+        onClick={(e) => {
+          if (e.target === e.currentTarget) {
+            setMenuTray(false)
+          }
+        }}
+      >
+        <MenuTray
+          roomID={id}
+          friends={friendDatas}
+          MyID={myId}
+          roomName={roomName}
+        />
+      </div>
       <div className={styles.MessageArea}>
         {sortedMessages.map((row) => {
           const isMine = row.sendID === myId
           const sender = targetUser(row.sendID)
-
           return (
             <div
               key={row.id}

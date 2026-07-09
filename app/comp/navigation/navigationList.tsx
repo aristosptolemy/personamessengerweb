@@ -1,8 +1,10 @@
 import GroupIcon from '@mui/icons-material/Group';
-import GroupAddIcon from '@mui/icons-material/GroupAdd';
+
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
-import OutputIcon from '@mui/icons-material/Output';
+
 import PersonSearchIcon from '@mui/icons-material/PersonSearch';
+
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
 
@@ -15,14 +17,19 @@ export const Lists = [
     icon: <GroupIcon />
   },
   {
+    link: '/friend-search',
+    name: 'ユーザー検索',
+    icon: <PersonSearchIcon />
+  },
+  {
     link: '/chat-rooms',
     name: 'チャットルーム一覧',
     icon: <ChatIcon />
   },
   {
-    link: '/friend-search',
-    name: 'ユーザー検索',
-    icon: <PersonSearchIcon />
+    link: '/room-create',
+    name: 'ルーム作成',
+    icon: <AddCircleIcon />
   },
   {
     link: '/request-list',

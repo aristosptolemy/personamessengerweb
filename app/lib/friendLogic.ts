@@ -25,7 +25,8 @@ export const friendRequestSend = async (
 ) => {
   const data = {
     partnerID: MyID,
-    message: message
+    message: message,
+    type: 'friend'
   }
 
   const collect = collection(
@@ -39,3 +40,4 @@ export const friendRequestSend = async (
   }
   
 }
+

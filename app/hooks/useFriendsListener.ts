@@ -6,6 +6,8 @@ import {
   query,
   onSnapshot,
   type Timestamp,
+  doc,
+  getDoc
 } from "firebase/firestore"
 import { db } from "../lib/firebase"
 
@@ -13,7 +15,7 @@ import { db } from "../lib/firebase"
 export type Request = {
   id: string
   partnerID: string
-  mesage: string
+  message: string
 }
 
 
@@ -21,6 +23,8 @@ export function useFriendsListener(
   userID: string | null
 ) {
   const [friends, setFriends] = useState<Request[]>([])
+
+  const [FriendDatas, setFriendDatas] = useState([])
 
   useEffect(() => {
     if (!userID) {
@@ -44,6 +48,23 @@ export function useFriendsListener(
             ...doc.data()
           })) as Request[]
 
+          const Datas = []
+
+          for (const row of data) {
+            const userRef = doc(db, 'users', row.id)
+            const userSnap = await getDoc(userRef)
+            const userData = userSnap.exists()
+              ? {
+                  id: userSnap.id,
+                  ...userSnap.data()
+                } as any
+              : null
+            Datas.push(userData)
+          }
+
+          setFriendDatas(Datas)
+
+
           setFriends(data)
         } catch {
           setFriends([])
@@ -61,6 +82,7 @@ export function useFriendsListener(
   }, [userID])
 
   return {
-    friends
+    friends,
+    FriendDatas
   }
 }

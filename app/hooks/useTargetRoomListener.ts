@@ -9,10 +9,21 @@ import {
 import { db } from "../lib/firebase"
 
 
-export function useTargetRoomListener(
+type Room = {
+  id: string
+  createdAt: Timestamp
+  memberMap?: any[]
+  members?: string[]
+  owner?: string
+  roomID?: string
+  roomName?: string
+  updatedAt?: Timestamp
+}
+
+export const useTargetRoomListener = (
   roomID: string | null
-) {
-  const [roomData, setRoomData] = useState(null)
+) => {
+  const [roomData, setRoomData] = useState<Room | null>(null)
 
   useEffect(() => {
     if (!roomID) {
@@ -35,7 +46,7 @@ export function useTargetRoomListener(
         const data = {
           id: snapshot.id,
           ...snapshot.data(),
-        }
+        } as Room
 
         setRoomData(data)
       },
