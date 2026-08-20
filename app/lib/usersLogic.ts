@@ -15,18 +15,23 @@ import {
 } from 'firebase/firestore'
 
 
-export const userDataGet = async(userID: string) => {
+export const userDataGet = async (userID: string) => {
   const userRef = doc(db, 'users', userID)
+
   try {
     const snap = await getDoc(userRef)
+
     if (!snap.exists()) {
+      console.log('ドキュメントが存在しない')
       return null
     }
     return {
       id: snap.id,
       ...snap.data()
     }
-  } catch {
+
+  } catch (error) {
+    console.error('getDoc失敗:', error)
     return null
   }
 }

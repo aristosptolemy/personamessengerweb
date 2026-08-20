@@ -10,8 +10,12 @@ export default function Main() {
   const userID = localData ? JSON.parse(localData) : null
 
   const userDataCheck = async() => {
+
+    
+    console.log(userID)
     const localData = await userDataGet(userID.id)
-    localStorage.setItem('userData', JSON.stringify(localData))
+    console.log(localData)
+    //localStorage.setItem('userData', JSON.stringify(localData))
     if (!localData) {
       navigate(`/user-setting/${userID.id}`)
     } else {
