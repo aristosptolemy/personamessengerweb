@@ -10,6 +10,7 @@ import styles from './register.module.css'
 const Success = '確認メールを送信しました。届かない場合は迷惑メールフォルダも確認してください。'
 
 export default function Register() {
+  return null
   const [email, setEmail] = useState('')
   const [passP, setPassP] = useState('')
   const [passS, setPassS] = useState('')

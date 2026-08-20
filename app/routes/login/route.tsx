@@ -123,9 +123,9 @@ export default function LoginPage() {
             <div
               className={styles.helpArea}
             >
-              <div>
+              {/* <div>
                 <Link to='/Register' className={styles.Register}>アカウント新規登録</Link>
-              </div>
+              </div> */}
               <div>
                 <Link to='/ResetPassword' className={styles.Reset}>パスワード再設定</Link>
               </div>
